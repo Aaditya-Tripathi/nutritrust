@@ -1,0 +1,650 @@
+[
+  {
+    "id": "en:apple",
+    "taxonomy": "allergens",
+    "names": [
+      "apple"
+    ],
+    "aliases": [],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": null
+  },
+  {
+    "id": "en:banana",
+    "taxonomy": "allergens",
+    "names": [
+      "banana"
+    ],
+    "aliases": [],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": null
+  },
+  {
+    "id": "en:beef",
+    "taxonomy": "allergens",
+    "names": [
+      "beef"
+    ],
+    "aliases": [],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": null
+  },
+  {
+    "id": "en:celery",
+    "taxonomy": "allergens",
+    "names": [
+      "celery"
+    ],
+    "aliases": [
+      "celeriac"
+    ],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": "Q28298"
+  },
+  {
+    "id": "en:chicken",
+    "taxonomy": "allergens",
+    "names": [
+      "chicken"
+    ],
+    "aliases": [],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": null
+  },
+  {
+    "id": "en:crustaceans",
+    "taxonomy": "allergens",
+    "names": [
+      "crustaceans"
+    ],
+    "aliases": [
+      "crab",
+      "crayfish",
+      "lobster",
+      "prawn",
+      "shrimp"
+    ],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": null
+  },
+  {
+    "id": "en:eggs",
+    "taxonomy": "allergens",
+    "names": [
+      "eggs"
+    ],
+    "aliases": [
+      "barn egg",
+      "egg",
+      "egg white",
+      "egg whites",
+      "egg yolk",
+      "egg yolks",
+      "whole egg",
+      "whole eggs"
+    ],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": "Q93189"
+  },
+  {
+    "id": "en:fish",
+    "taxonomy": "allergens",
+    "names": [
+      "fish"
+    ],
+    "aliases": [
+      "cod",
+      "fishes",
+      "flounder",
+      "haddock",
+      "halibut",
+      "mackerel",
+      "salmon",
+      "sardine",
+      "sardines",
+      "sole",
+      "trout",
+      "tuna",
+      "turbot"
+    ],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": "Q600396"
+  },
+  {
+    "id": "en:gelatin",
+    "taxonomy": "allergens",
+    "names": [
+      "gelatin"
+    ],
+    "aliases": [],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": null
+  },
+  {
+    "id": "en:gluten",
+    "taxonomy": "allergens",
+    "names": [
+      "gluten"
+    ],
+    "aliases": [
+      "barley",
+      "barley malt flour",
+      "cereals containing gluten",
+      "kamut",
+      "malted barley",
+      "malted barley extract",
+      "malted barley flour",
+      "oat fiber",
+      "oats",
+      "other cereals containing gluten",
+      "rye",
+      "rye flour",
+      "spelt",
+      "speltflour",
+      "wheat",
+      "wheat flour",
+      "wheat semolina",
+      "wheatflour"
+    ],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": "Q188251"
+  },
+  {
+    "id": "en:kiwi",
+    "taxonomy": "allergens",
+    "names": [
+      "kiwi"
+    ],
+    "aliases": [],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": null
+  },
+  {
+    "id": "en:lupin",
+    "taxonomy": "allergens",
+    "names": [
+      "lupin"
+    ],
+    "aliases": [
+      "lupine"
+    ],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": "Q156811"
+  },
+  {
+    "id": "en:matsutake",
+    "taxonomy": "allergens",
+    "names": [
+      "matsutake"
+    ],
+    "aliases": [],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": null
+  },
+  {
+    "id": "en:milk",
+    "taxonomy": "allergens",
+    "names": [
+      "milk"
+    ],
+    "aliases": [
+      "butter",
+      "buttermilk",
+      "cheese",
+      "cream",
+      "dairy",
+      "grana padano",
+      "lactose",
+      "milk chocolate coating",
+      "milk powder",
+      "milk protein",
+      "parmigiano reggiano",
+      "whey",
+      "yoghurt",
+      "yogurt"
+    ],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": null
+  },
+  {
+    "id": "en:molluscs",
+    "taxonomy": "allergens",
+    "names": [
+      "molluscs"
+    ],
+    "aliases": [
+      "clam",
+      "clams",
+      "cuttlefish",
+      "mollusc",
+      "mollusk",
+      "mollusks",
+      "mussel",
+      "mussels",
+      "oyster",
+      "oysters",
+      "scallop",
+      "scallops",
+      "squid"
+    ],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": "Q1275863"
+  },
+  {
+    "id": "en:mustard",
+    "taxonomy": "allergens",
+    "names": [
+      "mustard"
+    ],
+    "aliases": [
+      "brassica"
+    ],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": "Q1937700"
+  },
+  {
+    "id": "en:none",
+    "taxonomy": "allergens",
+    "names": [
+      "none"
+    ],
+    "aliases": [
+      "0",
+      "allergens-free",
+      "n",
+      "no",
+      "no allergens",
+      "without",
+      "without allergens"
+    ],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": null
+  },
+  {
+    "id": "en:nuts",
+    "taxonomy": "allergens",
+    "names": [
+      "nuts"
+    ],
+    "aliases": [
+      "almonds",
+      "Brazil nuts",
+      "cashew",
+      "cashews",
+      "hazelnuts",
+      "macadamia",
+      "Macadamia nuts",
+      "other nuts",
+      "other tree nuts",
+      "pecan",
+      "pecan nuts",
+      "pistachio",
+      "pistachio nuts",
+      "Queensland nuts",
+      "tree nuts",
+      "treenuts",
+      "walnuts"
+    ],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": null
+  },
+  {
+    "id": "en:orange",
+    "taxonomy": "allergens",
+    "names": [
+      "orange"
+    ],
+    "aliases": [],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": null
+  },
+  {
+    "id": "en:peach",
+    "taxonomy": "allergens",
+    "names": [
+      "peach"
+    ],
+    "aliases": [],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": null
+  },
+  {
+    "id": "en:peanuts",
+    "taxonomy": "allergens",
+    "names": [
+      "peanuts"
+    ],
+    "aliases": [
+      "arachis hypogaea",
+      "peanut"
+    ],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": "Q7157933"
+  },
+  {
+    "id": "en:pork",
+    "taxonomy": "allergens",
+    "names": [
+      "pork"
+    ],
+    "aliases": [],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": null
+  },
+  {
+    "id": "en:red-caviar",
+    "taxonomy": "allergens",
+    "names": [
+      "red caviar"
+    ],
+    "aliases": [],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": null
+  },
+  {
+    "id": "en:sesame-seeds",
+    "taxonomy": "allergens",
+    "names": [
+      "sesame seeds"
+    ],
+    "aliases": [
+      "sesame"
+    ],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": "Q20026786"
+  },
+  {
+    "id": "en:soybeans",
+    "taxonomy": "allergens",
+    "names": [
+      "soybeans"
+    ],
+    "aliases": [
+      "black soy bean",
+      "soia",
+      "soja",
+      "soy",
+      "soy bean oil",
+      "soy flour",
+      "soy lecithin",
+      "soy lecithines",
+      "soy lecithins",
+      "soy protein isolate",
+      "soya",
+      "soya bean",
+      "soya flour",
+      "soya lecithin",
+      "soya lecithins",
+      "soya products"
+    ],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": null
+  },
+  {
+    "id": "en:sulphur-dioxide-and-sulphites",
+    "taxonomy": "allergens",
+    "names": [
+      "sulphur dioxide and sulphites"
+    ],
+    "aliases": [
+      "sulfites",
+      "sulphites",
+      "sulphur dioxide"
+    ],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": null
+  },
+  {
+    "id": "en:yamaimo",
+    "taxonomy": "allergens",
+    "names": [
+      "yamaimo"
+    ],
+    "aliases": [],
+    "codes": [],
+    "parents": [],
+    "classes": [],
+    "allergens": [],
+    "nova": null,
+    "fromPalmOil": null,
+    "vegan": null,
+    "vegetarian": null,
+    "description": null,
+    "wikipediaUrl": null,
+    "wikidataId": null
+  }
+]

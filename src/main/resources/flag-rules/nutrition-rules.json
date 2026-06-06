@@ -1,0 +1,199 @@
+[
+  {
+    "id": "energy-kcal-thresholds",
+    "type": "NUTRITION",
+    "category": "Energy",
+    "enabled": true,
+    "matchMode": "NUTRITION_LEVELS",
+    "nutrientName": "Energy",
+    "nutrientFields": ["energy-kcal_100g", "energy-kcal_value"],
+    "fallbackNutrientFields": ["energy_100g", "energy-kj_100g"],
+    "fallbackMultiplier": 0.239006,
+    "unit": "kcal per 100g",
+    "fallbackExplanation": "Energy was calculated from kilojoules.",
+    "positiveSignalLevels": ["LOW"],
+    "levels": [
+      { "level": "LOW", "maxInclusive": 160.0 },
+      { "level": "MEDIUM", "minInclusive": 160.000001, "maxInclusive": 400.0 },
+      { "level": "HIGH", "minInclusive": 400.000001 }
+    ]
+  },
+  {
+    "id": "total-fat-thresholds",
+    "type": "NUTRITION",
+    "category": "Total fat",
+    "enabled": true,
+    "matchMode": "NUTRITION_LEVELS",
+    "nutrientName": "Total fat",
+    "nutrientFields": ["fat_100g"],
+    "unit": "g per 100g",
+    "positiveSignalLevels": ["LOW"],
+    "levels": [
+      { "level": "LOW", "maxInclusive": 3.0 },
+      { "level": "MEDIUM", "minInclusive": 3.000001, "maxInclusive": 17.5 },
+      { "level": "HIGH", "minInclusive": 17.500001 }
+    ]
+  },
+  {
+    "id": "sugar-thresholds",
+    "type": "NUTRITION",
+    "category": "Sugar",
+    "enabled": true,
+    "matchMode": "NUTRITION_LEVELS",
+    "nutrientName": "Sugar",
+    "nutrientFields": ["sugars_100g"],
+    "unit": "g per 100g",
+    "positiveSignalLevels": ["LOW"],
+    "levels": [
+      { "level": "LOW", "maxInclusive": 5.0 },
+      { "level": "MEDIUM", "minInclusive": 5.000001, "maxInclusive": 22.5 },
+      { "level": "HIGH", "minInclusive": 22.500001 }
+    ]
+  },
+  {
+    "id": "added-sugars-thresholds",
+    "type": "NUTRITION",
+    "category": "Added sugars",
+    "enabled": true,
+    "matchMode": "NUTRITION_LEVELS",
+    "nutrientName": "Added sugars",
+    "nutrientFields": ["added-sugars_100g", "added_sugars_100g"],
+    "unit": "g per 100g",
+    "positiveSignalLevels": ["LOW"],
+    "levels": [
+      { "level": "LOW", "maxInclusive": 5.0 },
+      { "level": "MEDIUM", "minInclusive": 5.000001, "maxInclusive": 22.5 },
+      { "level": "HIGH", "minInclusive": 22.500001 }
+    ]
+  },
+  {
+    "id": "salt-thresholds",
+    "type": "NUTRITION",
+    "category": "Salt",
+    "enabled": true,
+    "matchMode": "NUTRITION_LEVELS",
+    "nutrientName": "Salt",
+    "nutrientFields": ["salt_100g"],
+    "fallbackNutrientFields": ["sodium_100g"],
+    "fallbackMultiplier": 2.5,
+    "unit": "g per 100g",
+    "fallbackExplanation": "Salt was calculated from sodium.",
+    "positiveSignalLevels": ["LOW"],
+    "levels": [
+      { "level": "LOW", "maxInclusive": 0.3 },
+      { "level": "MEDIUM", "minInclusive": 0.300001, "maxInclusive": 1.5 },
+      { "level": "HIGH", "minInclusive": 1.500001 }
+    ]
+  },
+  {
+    "id": "sodium-thresholds",
+    "type": "NUTRITION",
+    "category": "Sodium",
+    "enabled": true,
+    "matchMode": "NUTRITION_LEVELS",
+    "nutrientName": "Sodium",
+    "nutrientFields": ["sodium_100g"],
+    "unit": "g per 100g",
+    "positiveSignalLevels": ["LOW"],
+    "levels": [
+      { "level": "LOW", "maxInclusive": 0.12 },
+      { "level": "MEDIUM", "minInclusive": 0.120001, "maxInclusive": 0.6 },
+      { "level": "HIGH", "minInclusive": 0.600001 }
+    ]
+  },
+  {
+    "id": "saturated-fat-thresholds",
+    "type": "NUTRITION",
+    "category": "Saturated fat",
+    "enabled": true,
+    "matchMode": "NUTRITION_LEVELS",
+    "nutrientName": "Saturated fat",
+    "nutrientFields": ["saturated-fat_100g"],
+    "unit": "g per 100g",
+    "positiveSignalLevels": ["LOW"],
+    "levels": [
+      { "level": "LOW", "maxInclusive": 1.5 },
+      { "level": "MEDIUM", "minInclusive": 1.500001, "maxInclusive": 5.0 },
+      { "level": "HIGH", "minInclusive": 5.000001 }
+    ]
+  },
+  {
+    "id": "trans-fat-thresholds",
+    "type": "NUTRITION",
+    "category": "Trans fat",
+    "enabled": true,
+    "matchMode": "NUTRITION_LEVELS",
+    "nutrientName": "Trans fat",
+    "nutrientFields": ["trans-fat_100g"],
+    "unit": "g per 100g",
+    "positiveSignalLevels": ["LOW"],
+    "levels": [
+      { "level": "LOW", "maxInclusive": 0.1 },
+      { "level": "MEDIUM", "minInclusive": 0.100001, "maxInclusive": 1.0 },
+      { "level": "HIGH", "minInclusive": 1.000001 }
+    ]
+  },
+  {
+    "id": "cholesterol-thresholds",
+    "type": "NUTRITION",
+    "category": "Cholesterol",
+    "enabled": true,
+    "matchMode": "NUTRITION_LEVELS",
+    "nutrientName": "Cholesterol",
+    "nutrientFields": ["cholesterol_100g"],
+    "unit": "g per 100g",
+    "positiveSignalLevels": ["LOW"],
+    "levels": [
+      { "level": "LOW", "maxInclusive": 0.02 },
+      { "level": "MEDIUM", "minInclusive": 0.020001, "maxInclusive": 0.12 },
+      { "level": "HIGH", "minInclusive": 0.120001 }
+    ]
+  },
+  {
+    "id": "carbohydrates-thresholds",
+    "type": "NUTRITION",
+    "category": "Carbohydrates",
+    "enabled": true,
+    "matchMode": "NUTRITION_LEVELS",
+    "nutrientName": "Carbohydrates",
+    "nutrientFields": ["carbohydrates_100g"],
+    "unit": "g per 100g",
+    "levels": [
+      { "level": "LOW", "maxInclusive": 10.0 },
+      { "level": "MEDIUM", "minInclusive": 10.000001, "maxInclusive": 45.0 },
+      { "level": "HIGH", "minInclusive": 45.000001 }
+    ]
+  },
+  {
+    "id": "protein-thresholds",
+    "type": "NUTRITION",
+    "category": "Protein",
+    "enabled": true,
+    "matchMode": "NUTRITION_LEVELS",
+    "nutrientName": "Protein",
+    "nutrientFields": ["proteins_100g"],
+    "unit": "g per 100g",
+    "positiveSignalLevels": ["GOOD"],
+    "levels": [
+      { "level": "LOW", "maxInclusive": 2.999999 },
+      { "level": "MODERATE", "minInclusive": 3.0, "maxInclusive": 8.0 },
+      { "level": "GOOD", "minInclusive": 8.000001 }
+    ]
+  },
+  {
+    "id": "fiber-thresholds",
+    "type": "NUTRITION",
+    "category": "Fiber",
+    "enabled": true,
+    "matchMode": "NUTRITION_LEVELS",
+    "nutrientName": "Fiber",
+    "nutrientFields": ["fiber_100g"],
+    "unit": "g per 100g",
+    "positiveSignalLevels": ["GOOD"],
+    "levels": [
+      { "level": "LOW", "maxInclusive": 1.999999 },
+      { "level": "MODERATE", "minInclusive": 2.0, "maxInclusive": 6.0 },
+      { "level": "GOOD", "minInclusive": 6.000001 }
+    ]
+  }
+]

@@ -1,0 +1,102 @@
+[
+  {
+    "id": "milk",
+    "type": "ALLERGEN",
+    "category": "milk",
+    "enabled": true,
+    "matchMode": "TAG_OR_TERM",
+    "terms": ["milk", "lactose", "whey", "casein"],
+    "taxonomyIds": ["en:milk"],
+    "explanation": "This allergen or trace allergen is listed in the product data."
+  },
+  {
+    "id": "gluten",
+    "type": "ALLERGEN",
+    "category": "gluten",
+    "enabled": true,
+    "matchMode": "TAG_OR_TERM",
+    "terms": ["wheat", "gluten", "barley", "rye", "oats"],
+    "taxonomyIds": ["en:gluten", "en:wheat"],
+    "explanation": "This allergen or trace allergen is listed in the product data."
+  },
+  {
+    "id": "soy",
+    "type": "ALLERGEN",
+    "category": "soy",
+    "enabled": true,
+    "matchMode": "TAG_OR_TERM",
+    "terms": ["soy", "soya", "soybeans"],
+    "taxonomyIds": ["en:soybeans"],
+    "explanation": "This allergen or trace allergen is listed in the product data."
+  },
+  {
+    "id": "peanuts",
+    "type": "ALLERGEN",
+    "category": "peanut",
+    "enabled": true,
+    "matchMode": "TAG_OR_TERM",
+    "terms": ["peanut", "peanuts"],
+    "taxonomyIds": ["en:peanuts"],
+    "explanation": "This allergen or trace allergen is listed in the product data."
+  },
+  {
+    "id": "tree-nuts",
+    "type": "ALLERGEN",
+    "category": "tree nut",
+    "enabled": true,
+    "matchMode": "TAG_OR_TERM",
+    "terms": ["tree nut", "nuts", "almond", "cashew", "walnut", "pistachio"],
+    "taxonomyIds": ["en:nuts"],
+    "explanation": "This allergen or trace allergen is listed in the product data."
+  },
+  {
+    "id": "mustard",
+    "type": "ALLERGEN",
+    "category": "mustard",
+    "enabled": true,
+    "matchMode": "TAG_OR_TERM",
+    "terms": ["mustard"],
+    "taxonomyIds": ["en:mustard"],
+    "explanation": "This allergen or trace allergen is listed in the product data."
+  },
+  {
+    "id": "sesame",
+    "type": "ALLERGEN",
+    "category": "sesame",
+    "enabled": true,
+    "matchMode": "TAG_OR_TERM",
+    "terms": ["sesame"],
+    "taxonomyIds": ["en:sesame-seeds"],
+    "explanation": "This allergen or trace allergen is listed in the product data."
+  },
+  {
+    "id": "celery",
+    "type": "ALLERGEN",
+    "category": "celery",
+    "enabled": true,
+    "matchMode": "TAG_OR_TERM",
+    "terms": ["celery"],
+    "taxonomyIds": ["en:celery"],
+    "explanation": "This allergen or trace allergen is listed in the product data."
+  },
+  {
+    "id": "egg",
+    "type": "ALLERGEN",
+    "category": "egg",
+    "enabled": true,
+    "matchMode": "TAG_OR_TERM",
+    "terms": ["egg"],
+    "taxonomyIds": ["en:eggs"],
+    "explanation": "This allergen or trace allergen is listed in the product data."
+  },
+  {
+    "id": "fish-shellfish",
+    "type": "ALLERGEN",
+    "category": "fish",
+    "enabled": true,
+    "matchMode": "TAG_OR_TERM",
+    "terms": ["fish", "shellfish"],
+    "taxonomyIds": ["en:fish", "en:crustaceans", "en:molluscs"],
+    "explanation": "This allergen or trace allergen is listed in the product data."
+  }
+]

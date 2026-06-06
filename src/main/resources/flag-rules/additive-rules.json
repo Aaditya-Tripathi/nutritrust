@@ -1,0 +1,68 @@
+[
+  {
+    "id": "acidity-regulators",
+    "type": "ADDITIVE",
+    "category": "Acidity Regulators",
+    "enabled": true,
+    "matchMode": "TAG_OR_TERM",
+    "terms": ["acidity regulator", "citric acid", "E330", "INS 330"],
+    "taxonomyIds": ["en:e330"],
+    "taxonomyClassIds": ["en:acidity-regulator"],
+    "explanation": "This additive is associated with acidity regulation in the product data."
+  },
+  {
+    "id": "preservatives",
+    "type": "ADDITIVE",
+    "category": "Preservatives",
+    "enabled": true,
+    "matchMode": "TAG_OR_TERM",
+    "terms": ["preservative", "sodium benzoate", "potassium sorbate", "E211", "E202"],
+    "taxonomyIds": ["en:e211", "en:e202"],
+    "taxonomyClassIds": ["en:preservative"],
+    "explanation": "This additive is associated with preservation in the product data."
+  },
+  {
+    "id": "emulsifiers-stabilizers-thickeners",
+    "type": "ADDITIVE",
+    "category": "Emulsifiers / Stabilizers / Thickeners",
+    "enabled": true,
+    "matchMode": "TAG_OR_TERM",
+    "terms": ["emulsifier", "stabilizer", "stabiliser", "thickener", "lecithin", "guar gum", "xanthan gum", "E322", "E412", "E415"],
+    "taxonomyIds": ["en:e322", "en:e412", "en:e415"],
+    "taxonomyClassIds": ["en:emulsifier", "en:stabilizer", "en:thickener"],
+    "explanation": "This additive is associated with emulsifying, stabilizing, or thickening functions in the product data."
+  },
+  {
+    "id": "colours",
+    "type": "ADDITIVE",
+    "category": "Colours",
+    "enabled": true,
+    "matchMode": "TAG_OR_TERM",
+    "terms": ["colour", "color", "caramel colour", "E150", "E150d"],
+    "taxonomyIds": ["en:e150d"],
+    "taxonomyClassIds": ["en:colour"],
+    "explanation": "This additive is associated with added colour in the product data."
+  },
+  {
+    "id": "flavour-enhancers",
+    "type": "ADDITIVE",
+    "category": "Flavour Enhancers",
+    "enabled": true,
+    "matchMode": "TAG_OR_TERM",
+    "terms": ["flavour enhancer", "flavor enhancer", "monosodium glutamate", "MSG", "E621"],
+    "taxonomyIds": ["en:e621"],
+    "taxonomyClassIds": ["en:flavour-enhancer"],
+    "explanation": "This additive is associated with flavour enhancement in the product data."
+  },
+  {
+    "id": "raising-agents",
+    "type": "ADDITIVE",
+    "category": "Raising Agents",
+    "enabled": true,
+    "matchMode": "TAG_OR_TERM",
+    "terms": ["raising agent", "sodium bicarbonate", "E500"],
+    "taxonomyIds": ["en:e500"],
+    "taxonomyClassIds": ["en:raising-agent"],
+    "explanation": "This additive is associated with a raising-agent function in the product data."
+  }
+]

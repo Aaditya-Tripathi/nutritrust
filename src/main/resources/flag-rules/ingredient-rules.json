@@ -1,0 +1,72 @@
+[
+  {
+    "id": "added-sugar-sweeteners",
+    "type": "INGREDIENT",
+    "category": "Added Sugar / Sweetener Sources",
+    "enabled": true,
+    "matchMode": "CONTAINS_TERM",
+    "terms": ["sugar", "added sugar", "glucose", "fructose", "dextrose", "maltose", "maltodextrin", "syrup", "corn syrup", "invert sugar", "sweetener", "sucralose", "aspartame", "acesulfame potassium"],
+    "taxonomyIds": ["en:sugar", "en:glucose", "en:fructose", "en:maltodextrin", "en:sucralose", "en:aspartame"],
+    "explanation": "The ingredient list contains sugar or sweetener-related terms. Reviewers may want to consider this while evaluating the product."
+  },
+  {
+    "id": "refined-carbohydrates",
+    "type": "INGREDIENT",
+    "category": "Refined Carbohydrate Sources",
+    "enabled": true,
+    "matchMode": "CONTAINS_TERM",
+    "terms": ["refined flour", "refined wheat flour", "wheat flour", "maida", "starch", "maize starch", "corn starch", "modified starch"],
+    "taxonomyIds": ["en:wheat-flour", "en:corn-starch", "en:modified-starch"],
+    "explanation": "The ingredient list contains refined flour or starch-related ingredients."
+  },
+  {
+    "id": "processed-oils-fats",
+    "type": "INGREDIENT",
+    "category": "Processed Oils / Fats",
+    "enabled": true,
+    "matchMode": "CONTAINS_TERM",
+    "terms": ["palm", "palm oil", "palmolein", "hydrogenated", "hydrogenated oil", "hydrogenated vegetable oil", "vanaspati", "shortening", "vegetable fat", "refined oil"],
+    "taxonomyIds": ["en:palm-oil", "en:palmolein", "en:hydrogenated-vegetable-oil"],
+    "explanation": "The ingredient list contains processed oil or fat-related terms."
+  },
+  {
+    "id": "flavouring-agents",
+    "type": "INGREDIENT",
+    "category": "Flavouring Agents",
+    "enabled": true,
+    "matchMode": "CONTAINS_TERM",
+    "terms": ["flavour", "flavor", "flavouring", "flavoring", "added flavour", "added flavor", "nature-identical", "nature identical", "flavouring substance", "flavoring substance"],
+    "taxonomyIds": ["en:flavouring", "en:natural-flavouring"],
+    "explanation": "The ingredient list mentions flavouring agents or flavouring substances."
+  },
+  {
+    "id": "flavour-enhancers",
+    "type": "INGREDIENT",
+    "category": "Flavour Enhancers",
+    "enabled": true,
+    "matchMode": "CONTAINS_TERM",
+    "terms": ["flavour enhancer", "flavor enhancer", "hydrolysed vegetable protein", "hydrolyzed vegetable protein", "yeast extract", "msg", "monosodium glutamate"],
+    "taxonomyIds": ["en:monosodium-glutamate", "en:yeast-extract"],
+    "explanation": "The ingredient list contains ingredients or additives commonly used to enhance flavour."
+  },
+  {
+    "id": "added-colours",
+    "type": "INGREDIENT",
+    "category": "Added Colours",
+    "enabled": true,
+    "matchMode": "CONTAINS_TERM",
+    "terms": ["colour", "color", "added colour", "added color", "permitted colour", "permitted color", "caramel", "artificial colour", "artificial color", "synthetic colour", "synthetic color"],
+    "taxonomyIds": ["en:caramel", "en:caramel-colour"],
+    "explanation": "The ingredient list mentions added colours or colour-related ingredients."
+  },
+  {
+    "id": "functional-additives",
+    "type": "INGREDIENT",
+    "category": "Functional Additives",
+    "enabled": true,
+    "matchMode": "CONTAINS_TERM",
+    "terms": ["acidity regulator", "antioxidant", "thickener", "texturizer", "texturiser", "stabilizer", "stabiliser", "emulsifier", "preservative", "raising agent", "anticaking agent", "firming agent", "humectant"],
+    "taxonomyIds": ["en:citric-acid", "en:lecithin", "en:sodium-bicarbonate"],
+    "explanation": "The ingredient list contains functional additives such as acidity regulators, antioxidants, thickeners, stabilizers, emulsifiers, preservatives, or similar functional ingredients."
+  }
+]
