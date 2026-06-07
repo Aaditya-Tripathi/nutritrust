@@ -1,6 +1,7 @@
 import type {
   DashboardResponse,
   ErrorResponse,
+  GroqApiKeyTestResponse,
   ProductReportRequest,
   ProductReportResponse,
   ReportHistoryItem,
@@ -73,6 +74,13 @@ export async function createReportWithManualLabel(payload: ProductReportRequest)
   return request<ProductReportResponse>('/api/products/report', {
     method: 'POST',
     body: JSON.stringify(payload),
+  })
+}
+
+export async function testGroqApiKey(groqApiKey: string) {
+  return request<GroqApiKeyTestResponse>('/api/groq/test-key', {
+    method: 'POST',
+    body: JSON.stringify({ groqApiKey }),
   })
 }
 

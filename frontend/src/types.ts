@@ -69,6 +69,11 @@ export type ProductReportRequest = {
   groqApiKey?: string
 }
 
+export type GroqApiKeyTestResponse = {
+  ok: boolean
+  message: string
+}
+
 export type ProductReportResponse = {
   found: boolean
   barcode: string

@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nutritrust.dto.AdditiveFlag;
 import com.nutritrust.dto.AllergenFlag;
 import com.nutritrust.dto.DataQualityWarning;
+import com.nutritrust.dto.GroqApiKeyTestResponse;
 import com.nutritrust.dto.IngredientFlag;
 import com.nutritrust.dto.NutritionFlag;
 import com.nutritrust.dto.PositiveSignal;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestClient;
+import org.springframework.web.client.RestClientResponseException;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -131,6 +133,45 @@ public class AiReportService {
             return requestApiKey.trim();
         }
         return configuredApiKey == null ? null : configuredApiKey.trim();
+    }
+
+    public GroqApiKeyTestResponse testConnection(String requestApiKey) {
+        String apiKey = selectApiKey(requestApiKey);
+        if (apiKey == null || apiKey.isBlank()) {
+            return new GroqApiKeyTestResponse(false, "Enter a Groq API key before testing.");
+        }
+
+        try {
+            Map<String, Object> request = Map.of(
+                    "model", model,
+                    "messages", List.of(Map.of(
+                            "role", "user",
+                            "content", "Reply exactly: GROQ_OK"
+                    )),
+                    "temperature", 0,
+                    "max_tokens", 12
+            );
+
+            JsonNode response = restClient.post()
+                    .uri("/chat/completions")
+                    .header(HttpHeaders.AUTHORIZATION, "Bearer " + apiKey)
+                    .body(request)
+                    .retrieve()
+                    .body(JsonNode.class);
+
+            String content = extractText(response).trim();
+            if ("GROQ_OK".equals(content)) {
+                return new GroqApiKeyTestResponse(true, "Groq connection test passed.");
+            }
+            return new GroqApiKeyTestResponse(false, "Groq responded, but the test response was unexpected.");
+        } catch (RestClientResponseException ex) {
+            return new GroqApiKeyTestResponse(
+                    false,
+                    "Groq rejected the request with status " + ex.getStatusCode().value() + ". Check the key and try again."
+            );
+        } catch (RuntimeException ex) {
+            return new GroqApiKeyTestResponse(false, "Could not connect to Groq. Check the key and network connection.");
+        }
     }
 
     private String buildFallbackReport(

@@ -486,6 +486,62 @@ a {
   text-underline-offset: 3px;
 }
 
+.groq-test-result {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 12px;
+  padding: 11px 12px;
+  color: #475569;
+  background: rgba(241, 245, 249, 0.68);
+  border: 1px solid rgba(220, 228, 239, 0.88);
+  border-radius: var(--radius-panel);
+}
+
+.groq-test-result svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: var(--muted);
+}
+
+.groq-test-result p {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.groq-test-result.success {
+  color: var(--emerald-deep);
+  background: rgba(216, 248, 234, 0.58);
+  border-color: rgba(4, 120, 87, 0.18);
+}
+
+.groq-test-result.success svg {
+  color: var(--emerald);
+}
+
+.groq-test-result.pending {
+  color: var(--blue);
+  background: rgba(219, 234, 254, 0.62);
+  border-color: rgba(29, 78, 216, 0.16);
+}
+
+.groq-test-result.pending svg {
+  color: var(--blue);
+}
+
+.groq-test-result.error {
+  color: var(--red);
+  background: var(--red-soft);
+  border-color: rgba(185, 28, 28, 0.18);
+}
+
+.groq-test-result.error svg {
+  color: var(--red);
+}
+
 .groq-key-note {
   display: flex;
   align-items: flex-start;

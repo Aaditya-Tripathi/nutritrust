@@ -1,12 +1,18 @@
 import { useState } from 'react'
+import { useMutation } from '@tanstack/react-query'
 import {
+  AlertCircle,
+  CheckCircle2,
   ExternalLink,
   KeyRound,
+  Loader2,
   LockKeyhole,
+  PlugZap,
   Save,
   ShieldCheck,
   Trash2,
 } from 'lucide-react'
+import { testGroqApiKey } from '../services/api'
 import {
   clearStoredGroqApiKey,
   readStoredGroqApiKey,
@@ -26,6 +32,9 @@ export function GroqApiKey() {
   const [status, setStatus] = useState<'empty' | 'saved' | 'editing'>(
     () => (readStoredGroqApiKey() ? 'saved' : 'empty'),
   )
+  const testMutation = useMutation({
+    mutationFn: testGroqApiKey,
+  })
 
   function saveGroqApiKey() {
     const normalizedKey = groqApiKey.trim()
@@ -38,6 +47,7 @@ export function GroqApiKey() {
       writeStoredGroqApiKey(normalizedKey)
       setGroqApiKey(normalizedKey)
       setStatus('saved')
+      testMutation.reset()
     } catch {
       setStatus('editing')
     }
@@ -49,8 +59,22 @@ export function GroqApiKey() {
     } finally {
       setGroqApiKey('')
       setStatus('empty')
+      testMutation.reset()
     }
   }
+
+  function testCurrentGroqApiKey() {
+    testMutation.mutate(groqApiKey.trim())
+  }
+
+  const testResult = testMutation.data
+  const testStateClass = testMutation.isPending
+    ? 'pending'
+    : testResult?.ok
+      ? 'success'
+      : testMutation.error || testResult
+        ? 'error'
+        : 'idle'
 
   return (
     <div className="page">
@@ -103,10 +127,42 @@ export function GroqApiKey() {
               <Save size={17} aria-hidden="true" />
               Save key
             </button>
+            <button
+              type="button"
+              className="secondary-button"
+              disabled={testMutation.isPending}
+              onClick={testCurrentGroqApiKey}
+            >
+              {testMutation.isPending ? (
+                <Loader2 size={17} className="spin" aria-hidden="true" />
+              ) : (
+                <PlugZap size={17} aria-hidden="true" />
+              )}
+              Test key
+            </button>
             <button type="button" className="secondary-button danger" onClick={removeGroqApiKey}>
               <Trash2 size={17} aria-hidden="true" />
               Clear key
             </button>
+          </div>
+
+          <div className={`groq-test-result ${testStateClass}`}>
+            {testStateClass === 'success' ? (
+              <CheckCircle2 size={18} aria-hidden="true" />
+            ) : testStateClass === 'pending' ? (
+              <Loader2 size={18} className="spin" aria-hidden="true" />
+            ) : testStateClass === 'error' ? (
+              <AlertCircle size={18} aria-hidden="true" />
+            ) : (
+              <PlugZap size={18} aria-hidden="true" />
+            )}
+            <p>
+              {testMutation.isPending
+                ? 'Testing Groq connection...'
+                : testMutation.error
+                  ? testMutation.error.message
+                  : testResult?.message ?? 'Use Test key to confirm Groq accepts the saved key.'}
+            </p>
           </div>
 
           <div className="groq-key-note">

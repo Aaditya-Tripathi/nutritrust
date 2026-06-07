@@ -340,7 +340,8 @@ Use this option when each reviewer should provide their own key.
 2. Open `http://localhost:5173`.
 3. Go to `Groq API Key` in the sidebar.
 4. Paste the key and select `Save key`.
-5. Generate reports from `Analyze Product`.
+5. Use `Test key` to confirm Groq accepts the key.
+6. Generate reports from `Analyze Product`.
 
 The key is stored in the browser only. It is sent to the backend during report generation and is not saved in PostgreSQL.
 
@@ -419,6 +420,19 @@ GET /api/reports
 GET /api/reports/{id}
 DELETE /api/reports/{id}
 ```
+
+### Test Groq API Key
+
+```http
+POST /api/groq/test-key
+Content-Type: application/json
+
+{
+  "groqApiKey": "optional_groq_api_key_to_test"
+}
+```
+
+Returns whether Groq accepted the key for a small connectivity request. The key is not saved by the backend.
 
 ### Report Response Shape
 
