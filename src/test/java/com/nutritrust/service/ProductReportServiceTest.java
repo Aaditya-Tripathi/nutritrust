@@ -12,6 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.ArgumentMatchers.isNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -62,7 +63,8 @@ class ProductReportServiceTest {
                 anyList(),
                 anyList(),
                 anyList(),
-                anyList()
+                anyList(),
+                isNull()
         )).thenReturn("AI explanation unavailable. Please review the factual flags.");
 
         ProductReportResponse report = reportService.generateReport("1234567890123");
@@ -126,7 +128,8 @@ class ProductReportServiceTest {
                 anyList(),
                 anyList(),
                 anyList(),
-                anyList()
+                anyList(),
+                isNull()
         )).thenReturn("AI explanation unavailable. Please review the factual flags.");
 
         ProductReportResponse report = reportService.generateReport("8901088068758");

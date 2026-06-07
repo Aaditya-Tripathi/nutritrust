@@ -66,6 +66,7 @@ export type ProductReportRequest = {
   manualIngredientsText?: string
   manualAllergenText?: string
   manualNutritionNote?: string
+  groqApiKey?: string
 }
 
 export type ProductReportResponse = {

@@ -4,6 +4,7 @@ public record ProductReportRequest(
         String barcode,
         String manualIngredientsText,
         String manualAllergenText,
-        String manualNutritionNote
+        String manualNutritionNote,
+        String groqApiKey
 ) {
 }

@@ -40,11 +40,11 @@ public class ProductReportService {
     }
 
     public ProductReportResponse generateReport(String barcode) {
-        return generateReport(new ProductReportRequest(barcode, null, null, null));
+        return generateReport(new ProductReportRequest(barcode, null, null, null, null));
     }
 
     public ProductReportResponse generateReport(ProductReportRequest request) {
-        ProductReportRequest safeRequest = request == null ? new ProductReportRequest(null, null, null, null) : request;
+        ProductReportRequest safeRequest = request == null ? new ProductReportRequest(null, null, null, null, null) : request;
         JsonNode root = productLookupService.lookupRawByBarcode(safeRequest.barcode());
         String barcode = safeRequest.barcode();
         if (!isProductFound(root)) {
@@ -79,7 +79,8 @@ public class ProductReportService {
                 flagEvaluation.additiveFlags(),
                 flagEvaluation.allergenFlags(),
                 flagEvaluation.positiveSignals(),
-                dataQualityWarnings
+                dataQualityWarnings,
+                safeRequest.groqApiKey()
         );
 
         ProductReportResponse response = new ProductReportResponse(

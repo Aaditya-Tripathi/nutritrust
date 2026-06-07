@@ -416,6 +416,137 @@ a {
   gap: 9px;
 }
 
+.groq-key-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.9fr) minmax(0, 1.1fr);
+  align-items: start;
+  gap: 16px;
+}
+
+.groq-key-card,
+.groq-setup-card {
+  min-height: 100%;
+}
+
+.key-state-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  padding: 0 9px;
+  color: #475569;
+  background: var(--surface-muted);
+  border: 1px solid rgba(220, 228, 239, 0.88);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.key-state-chip.saved {
+  color: var(--emerald);
+  background: var(--emerald-soft);
+  border-color: rgba(4, 120, 87, 0.16);
+}
+
+.key-state-chip.editing {
+  color: var(--amber);
+  background: var(--amber-soft);
+  border-color: rgba(180, 83, 9, 0.18);
+}
+
+.groq-key-field {
+  display: grid;
+  gap: 8px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.groq-key-actions,
+.groq-link-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+  margin-top: 13px;
+}
+
+.groq-readme-note {
+  margin: 13px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.groq-readme-note a {
+  color: var(--emerald);
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.groq-key-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 14px;
+  padding: 12px;
+  color: #334155;
+  background: rgba(241, 245, 249, 0.7);
+  border: 1px solid rgba(220, 228, 239, 0.88);
+  border-radius: var(--radius-panel);
+}
+
+.groq-key-note svg {
+  flex: 0 0 auto;
+  color: var(--emerald);
+}
+
+.groq-key-note p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.groq-step-list {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  counter-reset: groq-steps;
+}
+
+.groq-step-list li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+  min-width: 0;
+  color: #334155;
+  font-size: 14px;
+  line-height: 1.5;
+  counter-increment: groq-steps;
+}
+
+.groq-step-list li::before {
+  display: inline-grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  color: var(--emerald-deep);
+  background: var(--emerald-soft);
+  border: 1px solid rgba(4, 120, 87, 0.16);
+  border-radius: var(--radius-control);
+  font-size: 12px;
+  font-weight: 900;
+  content: counter(groq-steps, decimal-leading-zero);
+}
+
 input,
 textarea {
   width: 100%;
@@ -2270,6 +2401,7 @@ textarea:focus {
   .lookup-card,
   .dashboard-grid,
   .dashboard-analytics-grid,
+  .groq-key-grid,
   .triage-grid {
     grid-template-columns: 1fr;
   }
@@ -2289,6 +2421,7 @@ textarea:focus {
   .snapshot-strip {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+
 }
 
 @media (max-width: 820px) {
@@ -2315,9 +2448,9 @@ textarea:focus {
   }
 
   .main-surface {
-    width: 100vw;
+    width: 100%;
     max-width: 100%;
-    padding: 18px 24px 18px 18px;
+    padding: 18px;
     overflow-x: clip;
   }
 
@@ -2335,8 +2468,18 @@ textarea:focus {
 
   .page {
     width: 100%;
-    max-width: calc(100vw - 42px);
+    max-width: 100%;
     margin-inline: 0;
+  }
+
+  .page-header h2 {
+    overflow-wrap: anywhere;
+    text-wrap: initial;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .page-header,
@@ -2357,6 +2500,19 @@ textarea:focus {
   .scanner-backdrop {
     align-items: end;
     padding: 12px;
+  }
+
+  .groq-key-actions,
+  .groq-link-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .groq-key-actions .primary-button,
+  .groq-key-actions .secondary-button,
+  .groq-link-row .primary-button,
+  .groq-link-row .secondary-button {
+    width: 100%;
   }
 
   .scanner-panel {
@@ -2421,6 +2577,10 @@ textarea:focus {
 }
 
 @media (max-width: 540px) {
+  .main-surface {
+    max-width: 390px;
+  }
+
   .page-header h2 {
     font-size: 28px;
     line-height: 1.12;

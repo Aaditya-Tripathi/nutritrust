@@ -19,6 +19,7 @@ import {
 } from 'lucide-react'
 import { ApiError, createReportWithManualLabel, fetchReportByBarcode } from '../services/api'
 import { ReportView } from '../components/ReportView'
+import { readStoredGroqApiKey } from '../groqKeyStorage'
 import {
   enter,
   exit,
@@ -76,8 +77,9 @@ export function AnalyzeProduct() {
           payload.manualAllergenText?.trim() ||
           payload.manualNutritionNote?.trim(),
       )
+      const hasGroqApiKey = Boolean(payload.groqApiKey?.trim())
 
-      if (hasManualText) {
+      if (hasManualText || hasGroqApiKey) {
         return createReportWithManualLabel(payload)
       }
 
@@ -115,12 +117,14 @@ export function AnalyzeProduct() {
       if (!normalizedBarcode) {
         return
       }
+      const savedGroqApiKey = readStoredGroqApiKey().trim()
 
       reportMutation.mutate({
         barcode: normalizedBarcode,
         manualIngredientsText: form.manualIngredientsText?.trim() || undefined,
         manualAllergenText: form.manualAllergenText?.trim() || undefined,
         manualNutritionNote: form.manualNutritionNote?.trim() || undefined,
+        groqApiKey: savedGroqApiKey || undefined,
       })
     },
     [

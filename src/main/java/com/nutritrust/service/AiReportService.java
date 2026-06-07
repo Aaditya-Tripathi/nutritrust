@@ -31,7 +31,7 @@ public class AiReportService {
 
     private final ObjectMapper objectMapper;
     private final RestClient restClient;
-    private final String apiKey;
+    private final String configuredApiKey;
     private final String model;
 
     public AiReportService(
@@ -41,11 +41,10 @@ public class AiReportService {
             @Value("${groq.base-url:https://api.groq.com/openai/v1}") String baseUrl
     ) {
         this.objectMapper = objectMapper;
-        this.apiKey = apiKey;
+        this.configuredApiKey = apiKey;
         this.model = model;
         this.restClient = RestClient.builder()
                 .baseUrl(baseUrl)
-                .defaultHeader(HttpHeaders.AUTHORIZATION, "Bearer " + apiKey)
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, "application/json")
                 .build();
     }
@@ -62,6 +61,35 @@ public class AiReportService {
             List<PositiveSignal> positiveSignals,
             List<DataQualityWarning> dataQualityWarnings
     ) {
+        return explain(
+                productName,
+                brand,
+                category,
+                ingredientText,
+                nutritionFlags,
+                ingredientFlags,
+                additiveFlags,
+                allergenFlags,
+                positiveSignals,
+                dataQualityWarnings,
+                null
+        );
+    }
+
+    public String explain(
+            String productName,
+            String brand,
+            String category,
+            String ingredientText,
+            List<NutritionFlag> nutritionFlags,
+            List<IngredientFlag> ingredientFlags,
+            List<AdditiveFlag> additiveFlags,
+            List<AllergenFlag> allergenFlags,
+            List<PositiveSignal> positiveSignals,
+            List<DataQualityWarning> dataQualityWarnings,
+            String requestApiKey
+    ) {
+        String apiKey = selectApiKey(requestApiKey);
         if (apiKey == null || apiKey.isBlank()) {
             log.warn("Groq API key is not configured. Set GROQ_API_KEY before starting the app.");
             return buildFallbackReport(productName, brand, category, nutritionFlags, ingredientFlags, additiveFlags, allergenFlags, positiveSignals, dataQualityWarnings);
@@ -81,6 +109,7 @@ public class AiReportService {
 
             JsonNode response = restClient.post()
                     .uri("/chat/completions")
+                    .header(HttpHeaders.AUTHORIZATION, "Bearer " + apiKey)
                     .body(request)
                     .retrieve()
                     .body(JsonNode.class);
@@ -95,6 +124,13 @@ public class AiReportService {
             log.warn("Groq report generation failed: {}", ex.getMessage());
             return buildFallbackReport(productName, brand, category, nutritionFlags, ingredientFlags, additiveFlags, allergenFlags, positiveSignals, dataQualityWarnings);
         }
+    }
+
+    private String selectApiKey(String requestApiKey) {
+        if (requestApiKey != null && !requestApiKey.isBlank()) {
+            return requestApiKey.trim();
+        }
+        return configuredApiKey == null ? null : configuredApiKey.trim();
     }
 
     private String buildFallbackReport(

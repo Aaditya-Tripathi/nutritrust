@@ -21,6 +21,7 @@ NutriTrust AI turns public packaged-food data into factual nutrition, ingredient
   <a href="#visual-tour">Visual Tour</a> |
   <a href="#architecture">Architecture</a> |
   <a href="#getting-started">Getting Started</a> |
+  <a href="#groq-api-key-setup">Groq Setup</a> |
   <a href="#api-reference">API</a> |
   <a href="#quality-checks">Quality Checks</a>
 </p>
@@ -41,10 +42,15 @@ Groq never creates product flags, assigns product scores, invents allergens, or 
 
 ## Visual Tour
 
-| Analyze Product | Report Details | Saved Reports |
-| --- | --- | --- |
-| ![Analyze product screen](frontend/analyze-report.png) | ![Report details screen](frontend/report-details.png) | ![Saved reports screen](frontend/saved-reports.png) |
-| Enter or scan a barcode, then add manual label text when public data is incomplete. | Review nutrition flags, positive signals, ingredient groups, additives, allergens, source warnings, and narrative text. | Browse saved reports persisted by the backend, with duplicate handling for unchanged deterministic content. |
+| Analyze Product | Dashboard |
+| --- | --- |
+| ![Analyze product screen](frontend/analyze-report.png) | ![Dashboard screen](frontend/dashboard.png) |
+| Enter or scan a barcode, then add manual label text when public data is incomplete. | Review saved-report totals, flag distribution, filters, and recent report rows from one analytics view. |
+
+| Report Details | Saved Reports |
+| --- | --- |
+| ![Report details screen](frontend/report-details.png) | ![Saved reports screen](frontend/saved-reports.png) |
+| Review nutrition flags, positive signals, ingredient groups, additives, allergens, source warnings, and narrative text. | Browse saved reports persisted by the backend, with duplicate handling for unchanged deterministic content. |
 
 ## Core Capabilities
 
@@ -59,7 +65,9 @@ Groq never creates product flags, assigns product scores, invents allergens, or 
 | Data-quality warnings | Warns when public product data is missing, incomplete, or only partially usable for a review area. |
 | Manual fallback | Lets reviewers paste ingredient, allergen, trace, and nutrition notes when the public record is incomplete. |
 | Saved reports | Persists generated reports in PostgreSQL and avoids duplicate history rows when deterministic content has not changed. |
+| Dashboard analytics | Summarizes saved reports with totals, flag distribution, searchable recent reports, category filters, warning counts, and created dates. |
 | AI narrative | Uses Groq only for neutral explanatory text. A local fallback narrative keeps reports usable without an API key. |
+| Groq key page | Lets a reviewer save a Groq API key in browser storage so the backend can use it for report generation without saving it in PostgreSQL. |
 | Camera scanning | Supports browser-based barcode scanning through the React frontend, including an HTTPS helper for phone testing. |
 | Test coverage | Includes backend unit tests, frontend lint/build checks, taxonomy importer tests, and Groq connectivity tooling. |
 
@@ -91,7 +99,7 @@ Primary flow:
 4. The rules engine evaluates nutrition values, ingredient text, additives, allergens, and source completeness.
 5. Deterministic report content is saved in PostgreSQL.
 6. Groq optionally writes a neutral narrative from the generated facts.
-7. The frontend renders the structured report dashboard.
+7. The frontend renders the structured report and dashboard views.
 
 ### Report Generation Pipeline
 
@@ -146,7 +154,7 @@ Typical reviewer workflow:
 3. Normalize product identity, ingredients, allergens, additives, and nutrition values.
 4. Run factual backend checks.
 5. Save report history.
-6. Review the dashboard sections.
+6. Review the report sections and saved-report dashboard.
 7. Reopen saved reports when needed.
 
 ## Project Structure
@@ -157,7 +165,7 @@ Typical reviewer workflow:
 | `docs/images` | README diagram assets |
 | `frontend` | React and TypeScript client application |
 | `frontend/src/components` | Shared report and shell UI components |
-| `frontend/src/pages` | Analyze, report detail, saved reports, and not-found pages |
+| `frontend/src/pages` | Analyze, dashboard, Groq API key, report detail, saved reports, and not-found pages |
 | `src/main/java/com/nutritrust` | Spring Boot backend source |
 | `src/main/resources/application.properties` | Backend configuration |
 | `src/main/resources/flag-rules` | JSON rule packs for nutrition, ingredients, additives, and allergens |
@@ -240,6 +248,7 @@ Notes:
 
 - `DATABASE_PASSWORD` must match your local PostgreSQL password.
 - `GROQ_API_KEY` is optional. Without it, report generation still works with a local fallback narrative.
+- You can also save a Groq key from the frontend `Groq API Key` page. That browser-saved key is sent only with report-generation requests and is not saved in PostgreSQL.
 - If your PostgreSQL server uses port `5432`, update `DATABASE_URL` accordingly.
 
 ### 4. Install Frontend Dependencies
@@ -319,6 +328,47 @@ Camera access on phones usually requires HTTPS. Start the HTTPS dev server:
 
 Use the displayed local-network URL from your phone while both devices are on the same Wi-Fi network.
 
+## Groq API Key Setup
+
+Groq is optional. NutriTrust AI can generate reports without it by using the local fallback narrative. Add a Groq key only when you want the AI reviewer text generated by Groq from backend-produced facts.
+
+### Option A: Save The Key In The Frontend
+
+Use this option when each reviewer should provide their own key.
+
+1. Start the backend and frontend.
+2. Open `http://localhost:5173`.
+3. Go to `Groq API Key` in the sidebar.
+4. Paste the key and select `Save key`.
+5. Generate reports from `Analyze Product`.
+
+The key is stored in the browser only. It is sent to the backend during report generation and is not saved in PostgreSQL.
+
+### Option B: Set A Backend Environment Variable
+
+Use this option when the same backend key should be used as the fallback key.
+
+```powershell
+$env:GROQ_API_KEY="your_groq_api_key"
+.\run-backend.bat
+```
+
+For future Windows terminals:
+
+```powershell
+setx GROQ_API_KEY "your_groq_api_key"
+```
+
+### How To Get A Groq API Key
+
+1. Open the Groq API keys page: <https://console.groq.com/keys>.
+2. Sign in or create a Groq account.
+3. Create a new API key.
+4. Copy the key when Groq displays it.
+5. Paste it into the frontend `Groq API Key` page, or set it as `GROQ_API_KEY` before starting the backend.
+
+Groq's quickstart documentation is available at <https://console.groq.com/docs/quickstart>.
+
 ## API Reference
 
 ### Health
@@ -353,11 +403,14 @@ Content-Type: application/json
   "barcode": "8901030900112",
   "manualIngredientsText": "paste ingredient text here",
   "manualAllergenText": "paste allergen and trace declarations here",
-  "manualNutritionNote": "optional reviewer note"
+  "manualNutritionNote": "optional reviewer note",
+  "groqApiKey": "optional_groq_api_key_for_this_request"
 }
 ```
 
 Manual fields are merged with source data. Nutrition flags still depend on structured nutrition values from the product source.
+
+`groqApiKey` is optional. When present, the backend uses it only for that report-generation request and does not save the key with the report history.
 
 ### Saved Reports
 
@@ -421,7 +474,7 @@ Run these before committing changes:
 | `PostgreSQL rejected it` | Confirm the PostgreSQL username, password, host, port, and database name in `DATABASE_URL`. |
 | Frontend says it cannot connect to backend | Start Spring Boot on port `8080` or set `VITE_API_BASE_URL` if using a different backend URL. |
 | Product not found | Confirm the barcode digits and whether the product exists in Open Food Facts. |
-| No AI narrative | Set `GROQ_API_KEY`; otherwise the app intentionally uses local fallback report text. |
+| No AI narrative | Save a key on the frontend `Groq API Key` page or set `GROQ_API_KEY`; otherwise the app intentionally uses local fallback report text. |
 | Camera scanner blocked | Use `localhost`, `127.0.0.1`, or the HTTPS helper script for phone testing. |
 | Empty flags or warnings | Open Food Facts may have incomplete product data. Use manual label text where available and review data-quality warnings. |
 
@@ -431,7 +484,7 @@ Run these before committing changes:
 - Saved reports compare deterministic content to avoid repeated identical history rows.
 - The app is source-data aware: "not evaluated" and "none detected" are treated differently.
 - `.env`, `.env.*`, dependency folders, build outputs, logs, browser profiles, and local tooling binaries are ignored by Git.
-- Real API keys and database passwords should stay in environment variables only.
+- Real API keys and database passwords should stay out of Git. Use environment variables or the frontend browser-storage key page for local reviewer keys.
 
 ## Limitations
 

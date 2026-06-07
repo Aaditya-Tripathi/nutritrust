@@ -3,6 +3,7 @@ import {
   ClipboardList,
   Gauge,
   History,
+  KeyRound,
   LayoutDashboard,
   ShieldCheck,
 } from 'lucide-react'
@@ -14,6 +15,7 @@ const navItems = [
   { to: '/dashboard', label: 'Dashboard', icon: Gauge },
   { to: '/', label: 'Analyze Product', icon: LayoutDashboard },
   { to: '/reports', label: 'Saved Reports', icon: History },
+  { to: '/groq-api-key', label: 'Groq API Key', icon: KeyRound },
 ]
 
 export function AppShell() {
